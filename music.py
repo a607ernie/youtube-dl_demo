@@ -28,10 +28,11 @@ try:
 
     #ffmpeg path
     ffmpeg = '--ffmpeg-location %s' % js['ffmpeg_path']
+    #==========================================================================
 except:
     traceback.print_exc()
     input()
-#==========================================================================
+    
 def main():
     print("讀取設定檔...")
     print("Youtube 網址  : %s" % js['url'])
@@ -41,11 +42,6 @@ def main():
         subprocess.call("youtube-dl {archive} {convert_mp3} {audo_quality} {playlist_rule} {output} {ffmpeg} {url}"\
                         .format(url=js['url'],output=output,playlist_rule=playlist_rule,convert_mp3=convert_mp3,
                                 audo_quality=audo_quality,ffmpeg=ffmpeg,archive=archive))
-
-        #write log
-        filename = "{output_folder}\{file}.txt".format(output_folder=js['output_folder'], file=date.today())
-        with open(filename, 'w') as file:
-            file.write('')
     except:
         print(traceback.print_exc())
     print("\nDone. Input any key to exit.")
