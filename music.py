@@ -5,9 +5,7 @@ import json
 import sys
 sys.path.append('.')
 try:
-    '''
     #read config.json
-    '''
     js = ''
     with open('config.json' ,'r') as reader:
         js = json.loads(reader.read())
